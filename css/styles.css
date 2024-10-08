@@ -432,22 +432,24 @@ header {
         font-size: 0.9rem;
     }
 }
+
+
+
 /* Sección Nosotros */
 .about {
     text-align: center;
     background-color: #f8f9fa;
 }
 .about h2 {
-    margin-top: 40px;
     font-family: 'Poppins', sans-serif;
     font-size: 2.2em;
     color: #333;
     font-weight: 500;
+    margin-top: 35px;
+    margin-bottom: 20px;
     text-align: center;
     position: relative;
     display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .about h2::after {
@@ -457,7 +459,7 @@ header {
     bottom: -3px;
     width: 0;
     height: 3px;
-    background: #5acce6;
+    background: var(--primary-color);
     transition: width 0.3s ease;
     transform: translateX(-50%);
     border-radius: 3px;
@@ -467,26 +469,16 @@ header {
     width: 100%;
 }
 
-/* Media query para dispositivos móviles */
-@media (max-width: 768px) {
-    .about h2 {
-        font-size: 24px; /* Reducimos el tamaño de la fuente para móviles */
-        padding-left: 20px; /* Reducimos el padding izquierdo */
-        padding-right: 20px; /* Añadimos padding derecho para equilibrar */
-        margin-left: 20px; /* Eliminamos el margen automático */
-        margin-right: 0;
-        width: calc(100% - 40px); /* Ancho total menos los paddings */
-        box-sizing: border-box; /* Incluye padding en el ancho total */
-    }
 
-    .about h2::after {
-        width: 50%; /* Línea más corta en móviles */
-    }
 
-    .about h2:hover::after {
-        width: 80%; /* Línea un poco más larga al hover en móviles */
-    }
-}
+
+
+
+
+
+
+
+
 .about-cards {
     display: flex;
     justify-content: space-around;
@@ -760,7 +752,7 @@ header {
 /*---seccion imagenes del grupo*/
 .equipoTrabajo {
     text-align: center;
-    padding: 50px 0;
+    padding: 40px 0;
     background-color: #f8f9fa;
 }
 .equipoTrabajo h2 {
@@ -857,10 +849,7 @@ header {
 @media (max-width: 768px) {
     .equipoTrabajo h2 {
         font-size: 1.8em; /* Reducimos un poco el tamaño para móviles */
-        padding-left: 20px;
-        padding-right: 20px;
-        width: calc(100% - 40px);
-        box-sizing: border-box;
+       
     }
     
     .miembro-equipo {
@@ -872,13 +861,7 @@ header {
         font-size: 2.3rem;
     }
     
-    .equipoTrabajo h2::after {
-        width: 50%; /* Línea más corta en móviles */
-    }
-
-    .equipoTrabajo h2:hover::after {
-        width: 80%; /* Línea un poco más larga al hover en móviles */
-    }
+    
 }
 /* Sección Contacto */
 
