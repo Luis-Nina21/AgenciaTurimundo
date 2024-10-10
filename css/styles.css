@@ -449,8 +449,10 @@ header {
         font-size: 2rem;
     }
 
-    .package-bton a {
-        padding: 10px 10px;
+    .package-bton a{
+        padding: 10px 15px;
+        padding-left: 5px;
+        padding-right: 5px;
         font-size: 0.9rem;
     }
 }
