@@ -519,12 +519,13 @@ header {
     font-size: 20px;
     color: #5acce6;
     font-weight: 700;
-    text-align: center;
+    text-align: left;
     position: relative; /* Necesario para el posicionamiento de ::after */
     display: inline-block; /* Asegura que el h2 sea solo tan ancho como su contenido */
 }
 .about-card p{
     color: #878787;
+    text-align: left;
 }
 .about-card::after {
     content: "";
