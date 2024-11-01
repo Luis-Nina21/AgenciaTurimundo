@@ -1,0 +1,10 @@
+# Permitir acceso a todos los motores de búsqueda
+User-agent: *
+Allow: /
+
+# Bloquear acceso a carpetas o archivos específicos (opcional)
+# Disallow: /admin/
+# Disallow: /config/
+
+# Incluir el Sitemap
+Sitemap: https://https://agencia-turimundo.vercel.app//sitemap.xml

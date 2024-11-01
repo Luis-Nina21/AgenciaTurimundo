@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agencia Turimundo</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <div class="logo-container">
+                    <img src="https://github.com/Luis-Nina21/CarpetaImagenesAgencia/blob/main/turimundoIcono.png?raw=true" alt="">
+                    <h2>Turimundo</h2>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#paquetes">Paquetes</a></li>
+                    <li><a href="#contacto"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
+                      </svg> Contacto</a></li>
+                </ul>
+                <div class="language-switch">
+                    <div class="language-dropdown" onclick="toggleDropdown(event)">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Bandera_de_Espa%C3%B1a.svg/1200px-Bandera_de_Espa%C3%B1a.svg.png" alt="Bandera España" class="flag-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-globe" viewBox="0 0 16 16">
+                            <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m7.5-6.923c-.67.204-1.335.82-1.887 1.855A8 8 0 0 0 5.145 4H7.5zM4.09 4a9.3 9.3 0 0 1 .64-1.539 7 7 0 0 1 .597-.933A7.03 7.03 0 0 0 2.255 4zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a7 7 0 0 0-.656 2.5zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5zM8.5 5v2.5h2.99a12.5 12.5 0 0 0-.337-2.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5zM5.145 12q.208.58.468 1.068c.552 1.035 1.218 1.65 1.887 1.855V12zm.182 2.472a7 7 0 0 1-.597-.933A9.3 9.3 0 0 1 4.09 12H2.255a7 7 0 0 0 3.072 2.472M3.82 11a13.7 13.7 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5zm6.853 3.472A7 7 0 0 0 13.745 12H11.91a9.3 9.3 0 0 1-.64 1.539 7 7 0 0 1-.597.933M8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855q.26-.487.468-1.068zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.7 13.7 0 0 1-.312 2.5m2.802-3.5a7 7 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7 7 0 0 0-3.072-2.472c.218.284.418.598.597.933M10.855 4a8 8 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4z"/>
+                          </svg>                        <div class="dropdown-content">
+                            <div class="language-option" onclick="changeLanguage('es')">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Bandera_de_Espa%C3%B1a.svg/1200px-Bandera_de_Espa%C3%B1a.svg.png" alt="Bandera España"> Español
+                            </div>
+                            <div class="language-option" onclick="changeLanguage('en')">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/1024px-Flag_of_the_United_States.svg.png" alt="Bandera Reino Unido"> Inglés
+                            </div>
+                            <div class="language-option" onclick="changeLanguage('fr')">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/1920px-Flag_of_France.svg.png" alt="Bandera Francia"> Francés
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="hamburger">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    
+
+    <main>
+        <section id="inicio" class="carousel">
+            <div class="carousel-container">
+                <div class="carousel-slide">
+                    <img src="https://live.staticflickr.com/8513/8455238874_f0012b39bc_b.jpg" alt="Destino 1">
+                    <div class="carousel-caption">
+                        <h2>Descubre el mundo con nosotros</h2>
+                        <button class="package-bton"><a href="#paquetes">ver Paquetes</a></button>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="https://www.chullostravelperu.com/wp-content/uploads/2023/02/visita-al-canon-del-colca-1-1.jpg" alt="Destino 2">
+                    <div class="carousel-caption">
+                        <h2>Experiencias únicas te esperan</h2>
+                        <button class="package-bton"><a href="#paquetes">ver Paquetes</a></button>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="https://c0.wallpaperflare.com/preview/134/582/370/santa-catalina-monastery-arequipa-peru.jpg" alt="Destino 3">
+                    <div class="carousel-caption">
+                        <h2>Viaja seguro, viaja con expertos</h2>
+                        <button class="package-bton"><a href="#paquetes">ver Paquetes</a></button>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-btn prev">&lt;</button>
+            <button class="carousel-btn next">&gt;</button>
+        </section>
+        
+        
+
+        <section id="nosotros" class="about">
+            <h2>Nosotros</h2>
+            <div class="about-cards">
+                <div class="about-card">
+                    <h3>Misión</h3>
+                    <p> Brindar experiencias turísticas de alta calidad, ofreciendo servicios personalizados y fomentando un turismo responsable que respete el patrimonio cultural y ambiental de la región.</p>
+                </div>
+                <div class="about-card">
+                    <h3>Visión</h3>
+                    <p>Ser la agencia turística de referencia en la ciudad de Arequipa, reconocida por ofrecer experiencias únicas y auténticas que conectan a los viajeros con la cultura, la historia y la belleza natural de nuestra región. Aspiramos a ser un pilar en el desarrollo turístico local, promoviendo prácticas sostenibles y el bienestar de nuestras comunidades.</p>
+                </div>
+                <div class="about-card">
+                    <h3>Historia</h3>
+                    <p>Fundada el 10 de Octubre de 2024, nuestra agencia nace de la visión de un grupo de estudiantes universitarios apasionados por el turismo y motivados por la idea de transformar la experiencia turística en su región, decidieron unir sus conocimientos y habilidades para ofrecer una alternativa fresca y dinámica en el sector.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="paquetes" class="packages">
+            <h2>Nuestros Paquetes</h2>
+            <div class="package-grid">
+                <div class="package-card">
+                    <img src="https://www.chullostravelperu.com/wp-content/uploads/2024/01/canon-colca-arequipa.jpg" alt="Paquete 1">
+                    <h3>Valle del colca 3 Dias/ 2 Noches <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-alarm-fill" viewBox="0 0 16 16">
+                        <path d="M6 .5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1H9v1.07a7.001 7.001 0 0 1 3.274 12.474l.601.602a.5.5 0 0 1-.707.708l-.746-.746A6.97 6.97 0 0 1 8 16a6.97 6.97 0 0 1-3.422-.892l-.746.746a.5.5 0 0 1-.707-.708l.602-.602A7.001 7.001 0 0 1 7 2.07V1h-.5A.5.5 0 0 1 6 .5m2.5 5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9zM.86 5.387A2.5 2.5 0 1 1 4.387 1.86 8.04 8.04 0 0 0 .86 5.387M11.613 1.86a2.5 2.5 0 1 1 3.527 3.527 8.04 8.04 0 0 0-3.527-3.527"/>
+                      </svg></h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="footer-paquete">
+                        <p class="price">S/.295.00</p>
+                        <button class="view-package">Ver paquete <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                            <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                          </svg></button>
+                    </div>                </div>
+                <div class="package-card">
+                    <img src="https://destino-arequipa.com/wp-content/uploads/2022/11/Iglesia-del-Espiritu-Santo-de-Chiguata.webp" alt="Paquete 2">
+                    <h3>Sumbay, Chiguata y
+                        Mollendo 3 Dias / 2 Noches <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-alarm-fill" viewBox="0 0 16 16">
+                            <path d="M6 .5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1H9v1.07a7.001 7.001 0 0 1 3.274 12.474l.601.602a.5.5 0 0 1-.707.708l-.746-.746A6.97 6.97 0 0 1 8 16a6.97 6.97 0 0 1-3.422-.892l-.746.746a.5.5 0 0 1-.707-.708l.602-.602A7.001 7.001 0 0 1 7 2.07V1h-.5A.5.5 0 0 1 6 .5m2.5 5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9zM.86 5.387A2.5 2.5 0 1 1 4.387 1.86 8.04 8.04 0 0 0 .86 5.387M11.613 1.86a2.5 2.5 0 1 1 3.527 3.527 8.04 8.04 0 0 0-3.527-3.527"/>
+                          </svg></h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="footer-paquete">
+                        <p class="price">S/. 475.00</p>
+                        <button class="view-package">Ver paquete <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                            <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                          </svg></button>
+                    </div>                </div>
+                <div class="package-card">
+                    <img src="https://consultasenlinea.mincetur.gob.pe/fichaInventario/foto.aspx?cod=481110" alt="Paquete 3">
+                    <h3>Uchumayo tradicion y aventura 2 Dias / 1 Noche <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-alarm-fill" viewBox="0 0 16 16">
+                        <path d="M6 .5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1H9v1.07a7.001 7.001 0 0 1 3.274 12.474l.601.602a.5.5 0 0 1-.707.708l-.746-.746A6.97 6.97 0 0 1 8 16a6.97 6.97 0 0 1-3.422-.892l-.746.746a.5.5 0 0 1-.707-.708l.602-.602A7.001 7.001 0 0 1 7 2.07V1h-.5A.5.5 0 0 1 6 .5m2.5 5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9zM.86 5.387A2.5 2.5 0 1 1 4.387 1.86 8.04 8.04 0 0 0 .86 5.387M11.613 1.86a2.5 2.5 0 1 1 3.527 3.527 8.04 8.04 0 0 0-3.527-3.527"/>
+                      </svg></h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="footer-paquete">
+                        <p class="price">S/ 325.00</p>
+                        <button class="view-package">Ver paquete <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                            <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                          </svg></button>
+                    </div>
+                                </div>
+                <div class="package-card">
+                    <img src="https://lacasonadelolivo.com.pe/wp-content/uploads/2018/04/toro-muerto-arequipa.jpg" alt="Paquete 4">
+                    <h3>Ruta del sol: Explorando Islay Camaná y castilla 
+                        2D / 1N
+                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-alarm-fill" viewBox="0 0 16 16">
+                        <path d="M6 .5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1H9v1.07a7.001 7.001 0 0 1 3.274 12.474l.601.602a.5.5 0 0 1-.707.708l-.746-.746A6.97 6.97 0 0 1 8 16a6.97 6.97 0 0 1-3.422-.892l-.746.746a.5.5 0 0 1-.707-.708l.602-.602A7.001 7.001 0 0 1 7 2.07V1h-.5A.5.5 0 0 1 6 .5m2.5 5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9zM.86 5.387A2.5 2.5 0 1 1 4.387 1.86 8.04 8.04 0 0 0 .86 5.387M11.613 1.86a2.5 2.5 0 1 1 3.527 3.527 8.04 8.04 0 0 0-3.527-3.527"/>
+                      </svg></h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="footer-paquete">
+                        <p class="price">S/. 197.00</p>
+                        <button class="view-package">Ver paquete <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                            <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                          </svg></button>
+                    </div>                
+                </div>
+                <div class="package-card">
+                    <img src="https://fulldays.net/wp-content/uploads/2024/07/campina-contenido-xtravelperu.jpg" alt="Paquete 5">
+                    <h3>Campiña tour Full Day <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-alarm-fill" viewBox="0 0 16 16">
+                        <path d="M6 .5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1H9v1.07a7.001 7.001 0 0 1 3.274 12.474l.601.602a.5.5 0 0 1-.707.708l-.746-.746A6.97 6.97 0 0 1 8 16a6.97 6.97 0 0 1-3.422-.892l-.746.746a.5.5 0 0 1-.707-.708l.602-.602A7.001 7.001 0 0 1 7 2.07V1h-.5A.5.5 0 0 1 6 .5m2.5 5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9zM.86 5.387A2.5 2.5 0 1 1 4.387 1.86 8.04 8.04 0 0 0 .86 5.387M11.613 1.86a2.5 2.5 0 1 1 3.527 3.527 8.04 8.04 0 0 0-3.527-3.527"/>
+                      </svg></h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="footer-paquete">
+                        <p class="price">S/. 35.00</p>
+                        <button class="view-package">Ver paquete <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                            <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                          </svg></button>
+                    </div>                
+                </div>
+                <div class="package-card">
+                    <img src="https://www.machupicchuterra.com/wp-content/uploads/volcan-misti-arequipa-full.jpg" alt="Paquete 6">
+                    <h3>Arequipa autentica: Cataratas, bosques y pueblos históricos 3D/2N<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-alarm-fill" viewBox="0 0 16 16">
+                        <path d="M6 .5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1H9v1.07a7.001 7.001 0 0 1 3.274 12.474l.601.602a.5.5 0 0 1-.707.708l-.746-.746A6.97 6.97 0 0 1 8 16a6.97 6.97 0 0 1-3.422-.892l-.746.746a.5.5 0 0 1-.707-.708l.602-.602A7.001 7.001 0 0 1 7 2.07V1h-.5A.5.5 0 0 1 6 .5m2.5 5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9zM.86 5.387A2.5 2.5 0 1 1 4.387 1.86 8.04 8.04 0 0 0 .86 5.387M11.613 1.86a2.5 2.5 0 1 1 3.527 3.527 8.04 8.04 0 0 0-3.527-3.527"/>
+                      </svg></h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="footer-paquete">
+                        <p class="price">S/. 525.00</p>
+                        <button class="view-package">Ver paquete <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                            <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                          </svg></button>
+                    </div>
+                 
+                </div>
+            </div>
+
+        </section>
+        <button style="margin: 0 auto;" class="verMasPaquetes">Ver mas Paquetes <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+            <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+          </svg></button>
+
+
+        <section id="recomendaciones" class="recommendations">
+            <h2>Lo que dicen nuestros clientes</h2>
+            <div class="recommendation-cards">
+                <div class="recommendation-card">
+                    <img src="https://i0.wp.com/www.diarlu.com/wp-content/uploads/2019/09/rostro-mujer-adulta.jpg?resize=500%2C500&ssl=1" alt="Cliente 1" class="client-avatar">
+                    <h3>María L.</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"¡Una experiencia increíble! El viaje superó todas mis expectativas."</p>
+                </div>
+                
+                <div class="recommendation-card">
+                    <img src="https://vivolabs.es/wp-content/uploads/2022/03/perfil-hombre-vivo.png" alt="Cliente 2" class="client-avatar">
+                    <h3>Juan P.</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p>"Excelente atención y planificación. Definitivamente volveré a viajar con ellos."</p>
+                </div>
+                <div class="recommendation-card">
+                    <img src="https://img.europapress.es/fotoweb/fotonoticia_20150331134913-15031252319_600.jpg" alt="Cliente 3" class="client-avatar">
+                    <h3>Ana S.</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Profesionales en todo sentido. Hicieron de mis vacaciones algo inolvidable."</p>
+                </div>
+            </div>
+        </section>
+
+    </section>
+
+    <section class="equipoTrabajo">
+        <h2>Equipo de trabajo</h2>
+        <div class="imagenEquipo">
+            <div class="miembro-equipo">
+                <img src="https://github.com/Luis-Nina21/CarpetaImagenesAgencia/blob/main/fotoHugo.jpg?raw=true" alt="Hugo">
+                <div class="nombre">Hugo</div>
+            </div>
+            <div class="miembro-equipo">
+                <img src="https://github.com/Luis-Nina21/CarpetaImagenesAgencia/blob/main/fotoLuis.jpg?raw=true" alt="María">
+                <div class="nombre">Antony</div> 
+            </div>
+            <div class="miembro-equipo">
+                <img src="https://github.com/Luis-Nina21/CarpetaImagenesAgencia/blob/main/melanyFoto.jpg?raw=true" alt="Carlos">
+                <div class="nombre">Melany</div>
+            </div>
+            <div class="miembro-equipo">
+                <img src="https://github.com/Luis-Nina21/CarpetaImagenesAgencia/blob/main/fotoDeysi.jpg?raw=true" alt="Ana">
+                <div class="nombre">Deissy</div>
+            </div>
+            <div class="miembro-equipo">
+                <img src="https://github.com/Luis-Nina21/CarpetaImagenesAgencia/blob/main/fotoIkel.jpg?raw=true" alt="Luis">
+                <div class="nombre">Ikel Rodrigo</div>
+            </div>
+            <div class="miembro-equipo">
+                <img src="https://github.com/Luis-Nina21/CarpetaImagenesAgencia/blob/main/fotoMaria.jpg?raw=true" alt="Elena">
+                <div class="nombre">Maria Angela</div>
+            </div>
+        </div>
+    </section>
+       
+    </section>
+
+        <section id="contacto" class="contact">
+            <div class="contact-header">
+                <h2>Contactanos</h2>
+                <p class="contact-subheader">Nos encantaría saber mas de usted!</p>
+            </div>
+            <form id="contact-form">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required placeholder="Enter your name">
+                    <div class="error-message" id="name-error">Please enter your name</div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email address">
+                    <div class="error-message" id="email-error">Please enter a valid email address</div>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone:</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number (optional)">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea  id="message" name="message" required placeholder="Enter your message here"></textarea>
+                    <div class="error-message" id="message-error">Please enter your message</div>
+                </div>
+                <button type="submit">Enviar mensaje</button>
+            </form>
+            <div id="success-message" class="success-message">
+                Thank you for your message! We'll get back to you soon.
+            </div>
+        
+    </main>
+    <header2>
+        <div class="container">
+            <h1>Mapa Turístico del Valle del Colca</h1>
+        </div>
+    </header2>
+
+    <main class="container">
+        <section class="map-container">
+            <div id="map"></div>
+        </section>
+    </main>
+
+    <div id="locationModal">
+        <div class="modal-content">
+            <h2>Acceso a la ubicación</h2>
+            <p>Para una mejor experiencia, necesitamos acceder a tu ubicación. Por favor, habilita el acceso a la ubicación en tu dispositivo.</p>
+            <button id="enableLocationBtn">Habilitar ubicación</button>
+        </div>
+    </div>
+
+    <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v21.0&appId=1084231092637746"></script>
+
+<div class="comments-container">
+    <h3>Comentarios</h3>
+    <div class="fb-comments" data-href="https://agencia-turimundo.vercel.app/" data-width="" data-numposts="5"></div>
+</div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Agencia de Turismo Turimundo</h3>
+                <p>Hacemos tus sueños de viaje realidad desde 2024.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces rápidos</h3>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#paquetes">Paquetes</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p>Email: info@agenciaturimundo.com</p>
+                <p>Teléfono: +1 234 567 890</p>
+                <p>Dirección: Calle San Agustín 108, Arequipa - Perú</p>
+            </div>
+            <div class="footer-section">
+                <h3>Síguenos</h3>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Agencia de Turismo Turimundo. Todos los derechos reservados.</p>
+            <p>Develoment by LuanDev</p>
+            <div class="redes-luanDev">
+                <a href="https://github.com/Luis-Nina21">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="margin-top: 10px; color:white" width="25" height="25" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
+                      </svg>
+                </a>
+                
+                  <a href="https://www.linkedin.com/in/luis-antony-nina-llicahua-b11a8a2b1/">
+                    <svg xmlns="http://www.w3.org/2000/svg"  style="color: white;" width="25" height="25" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
+                        <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
+                      </svg>
+                  </a>
+                  
+            </div>
+            <img style="display: flex; justify-content: center; margin: 0 auto; margin-top: 10px;" src="https://github.com/Luis-Nina21/CarpetaImagenesAgencia/blob/main/yo.jpg?raw=true" alt="Cliente 2" class="client-avatar">
+        </div>
+
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+ var map, userLocationMarker, userPath, lugaresTuristicos;
+        var userLocations = [];
+        var isFirstLocation = true;
+
+        function initMap() {
+            map = L.map('map').setView([-15.627, -71.978], 11);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            userPath = L.polyline([], {color: 'red'}).addTo(map);
+
+            addTouristSites();
+            requestLocation();
+
+            document.getElementById('centerLocationBtn').addEventListener('click', centerOnUserLocation);
+        }
+
+        function createCustomIcon(imageUrl) {
+            return L.divIcon({
+                html: `<div class="custom-icon"><img src="${imageUrl}" alt="Lugar turístico"></div>`,
+                iconSize: [60, 75],
+                iconAnchor: [30, 75],
+                popupAnchor: [0, -75],
+                className: ''
+            });
+        }
+
+        function createMarker(lat, lng, imageUrl, title, description) {
+            var marker = L.marker([lat, lng], { icon: createCustomIcon(imageUrl) }).addTo(map);
+            marker.bindPopup(`
+                <div class="popup-content">
+                    <img src="${imageUrl}" style="width: 100px; height: 100px;">
+                    <h4>${title}</h4>
+                    <p>${description}</p>
+                    <p id="distanceInfo"></p>
+                </div>
+            `);
+            return marker;
+        }
+
+        function addTouristSites() {
+            var sitiosTuristicos = [
+                createMarker(-15.609, -71.972, 'https://www.machupicchu.biz/imagenes/articulos/arequipa/cruz-del-condor/mirador-colca.png', 'Cruz del Cóndor', 'Punto de observación de cóndores en su hábitat natural.'),
+                createMarker(-15.634, -71.885, 'https://www.arequipa.com/wp-content/uploads/2020/09/chivay-village-arequipa.jpg', 'Chivay', 'Capital de la provincia de Caylloma y punto de partida para explorar el Valle del Colca.'),
+                createMarker(-15.642, -71.793, 'https://terandes.com/wp-content/uploads/2023/01/Agua-termal-La-Calera-900x675.webp', 'Baños Termales La Calera', 'Aguas termales naturales con propiedades curativas.'),
+                createMarker(-15.615, -72.092, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQV_4_jcDKj4GxVb_6hIE-obeuWjQX-sG2HlQ&s', 'Ruinas de Uyo Uyo', 'Antiguo poblado pre-inca con impresionantes estructuras de piedra.'),
+                createMarker(-15.647, -71.652, 'https://media-cdn.tripadvisor.com/media/photo-s/17/b1/cd/74/there-is-a-low-walled.jpg', 'Maca', 'Pueblo tradicional conocido por su hermosa iglesia colonial y vistas al volcán Sabancaya.'),
+                createMarker(-15.583, -71.679, 'https://terandes.com/wp-content/uploads/2023/01/Tapay-1-1-900x692.webp', 'Mirador de Tapay', 'Punto panorámico con vistas espectaculares del cañón y los cultivos en terrazas.')
+            ];
+
+            lugaresTuristicos = L.layerGroup(sitiosTuristicos).addTo(map);
+        }
+
+        function requestLocation() {
+            if ("geolocation" in navigator) {
+                document.getElementById('locationModal').style.display = "block";
+                document.getElementById('enableLocationBtn').addEventListener('click', function() {
+                    document.getElementById('locationModal').style.display = "none";
+                    startLocationTracking();
+                });
+            } else {
+                alert("La geolocalización no está disponible en tu navegador.");
+            }
+        }
+
+        function startLocationTracking() {
+            navigator.geolocation.watchPosition(onLocationFound, onLocationError, {
+                enableHighAccuracy: true,
+                timeout: 5000,
+                maximumAge: 0
+            });
+        }
+
+        function onLocationFound(position) {
+            var lat = position.coords.latitude;
+            var lng = position.coords.longitude;
+            var accuracy = position.coords.accuracy;
+            var latlng = L.latLng(lat, lng);
+
+            if (userLocationMarker) {
+                userLocationMarker.setLatLng(latlng);
+            } else {
+                userLocationMarker = L.marker(latlng).addTo(map)
+                    .bindPopup("Estás dentro de " + Math.round(accuracy) + " metros de este punto").openPopup();
+            }
+
+            userLocations.push(latlng);
+            userPath.setLatLngs(userLocations);
+
+            updateDistances(latlng);
+
+            if (isFirstLocation) {
+                map.setView(latlng, 14);
+                isFirstLocation = false;
+            }
+        }
+
+        function updateDistances(userLocation) {
+            lugaresTuristicos.eachLayer(function(marker) {
+                var distance = userLocation.distanceTo(marker.getLatLng());
+                var popupContent = marker.getPopup().getContent();
+                var distanceInfo = "Distancia a este lugar: " + (distance / 1000).toFixed(2) + " km";
+                
+                if (!popupContent.includes("Distancia a este lugar:")) {
+                    var newContent = popupContent.replace('<p id="distanceInfo"></p>', `<p id="distanceInfo">${distanceInfo}</p>`);
+                    marker.setPopupContent(newContent);
+                } else {
+                    var updatedContent = popupContent.replace(/Distancia a este lugar: .*? km/, distanceInfo);
+                    marker.setPopupContent(updatedContent);
+                }
+            });
+        }
+
+        function onLocationError(e) {
+            alert("No se pudo obtener tu ubicación. Por favor, asegúrate de que la geolocalización esté habilitada en tu dispositivo.");
+        }
+
+        function centerOnUserLocation() {
+            if (userLocationMarker) {
+                map.setView(userLocationMarker.getLatLng(), 14);
+            } else {
+                alert("Aún no se ha detectado tu ubicación.");
+            }
+        }
+
+        window.onload = initMap;       
+
+      </script>
+</body>
+</html>
